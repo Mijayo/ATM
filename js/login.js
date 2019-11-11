@@ -7,28 +7,46 @@ class LogIn {
         this.email = email;
     }
 
-    guardarLogIn(user, mail) {
+    guardarLogIn() {
+
+        let ux = document.getElementById("ux").value;
+        let email = document.getElementById("email").value;
+
         let objLocalStorage = {
-            key: user,
-            email: mail
+            key: `${ux}`,
+            email: `${email}`
         };
-        // alert(objLocalStorage.email + objLocalStorage.key);
+
+        if (ux === null || email === null) {
+            // Aqui obligamos a guardar
+            this.guardarLogIn(objLocalStorage);
+
+        } else {
+            this.guardarLogIn(objLocalStorage);
+        }
+
+        // Definimos la variable del array para almacenar el objeto itemObject
+        var arrayLocal;
+
+        if (localStorage.getItem('nuevoUsuario') === null) {
+            // Defino el array
+            arrayLocal = [];
+        } else {
+            arrayLocal = JSON.parse(localStorage.getItem('nuevoUsuario'));
+        }
+
+        // 
+        arrayLocal.push(obj);
+
+        // Meterlo en localStorage
+        localStorage.setItem('nuevoUsuario', JSON.stringify(arrayLocal));
+        // alert(obj);
     }
 
     verificarLogin() {
-        let array;
-        let ux = document.getElementById("ux").value;
-        let email = document.getElementById("email").value;
-        let cadena = `${ux}  ${email}`;
 
-        if (ux !== null || email !== null) {
-            // alert("hola2");
-            this.guardarLogIn(ux, email);
 
-        } else {
-
-        }
-        return cadena;
+        // return cadena;
     }
 }
 
