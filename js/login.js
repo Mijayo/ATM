@@ -7,8 +7,12 @@ class LogIn {
         this.email = email;
     }
 
-    guardarLogIn() {
-
+    guardarLogIn(user, mail) {
+        let objLocalStorage = {
+            key: user,
+            email: mail
+        };
+        // alert(objLocalStorage.email + objLocalStorage.key);
     }
 
     verificarLogin() {
@@ -16,20 +20,14 @@ class LogIn {
         let ux = document.getElementById("ux").value;
         let email = document.getElementById("email").value;
         let cadena = `${ux}  ${email}`;
-        let objLocalStorage = {
-            key: `${ux}`,
-            email: `${email}`
-        };
 
-        if (array == null) {
-
-            this.guardarLogIn();
+        if (ux !== null || email !== null) {
+            // alert("hola2");
+            this.guardarLogIn(ux, email);
 
         } else {
 
         }
-
-
         return cadena;
     }
 }
