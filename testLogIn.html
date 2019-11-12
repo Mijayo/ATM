@@ -2,46 +2,70 @@
 <html>
 
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="testLogIn.css">
+    <title>ATM LogIn</title>
 </head>
 
 <body>
+    <main class="container cajaCentrada">
+        <h1 id="titular">ATM iFP</h1>
+        <section>
+            <button id="login" onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Log In</button>
 
-    <h2>Modal Login Form</h2>
+            <div id="id01" class="modal">
 
-    <button onclick="document.getElementById('id01').style.display='block'" style="width:auto;">Login</button>
+                <form class="modal-content animate"  method="post">
+                    <div class="imgcontainer">
+                        <span onclick="document.getElementById('id01').style.display='none'" class="close"
+                            title="Close Modal">&times;</span>
+                        <!-- <img src="img_avatar2.png" alt="Avatar" class="avatar"> -->
+                    </div>
 
-    <div id="id01" class="modal">
+                    <div class="container">
+                        <label for="uname"><b>Usuario</b></label>
+                        <input type="text" placeholder="usuario" name="uname" required>
 
-        <form class="modal-content animate" action="/action_page.php" method="post">
-            <div class="imgcontainer">
-                <span onclick="document.getElementById('id01').style.display='none'" class="close"
-                    title="Close Modal">&times;</span>
-                <!-- <img src="img_avatar2.png" alt="Avatar" class="avatar"> -->
+                        <label for="psw"><b>Contraseña</b></label>
+                        <input type="password" placeholder="contraseña" name="psw" required>
+
+                        <button type="submit">Log In</button>
+                        <label>
+                            <input type="checkbox" checked="checked" name="remember"> recordarme
+                        </label>
+                    </div>
+
+                    <div class="container" style="background-color:#f1f1f1">
+                        <button type="button" onclick="document.getElementById('id01').style.display='none'"
+                            class="cancelbtn">cancelar</button>
+                        <!-- <span class="psw">Forgot <a href="#">password?</a></span> -->
+                    </div>
+                </form>
             </div>
+        </section>
+        <section>
+            <form>
+                <h3>Darse de alta</h3>
+                <div class="form-group">
+                    <label for="">Usuario<input id="ux" class="form-control" type="text" name="usuario"></label>
+                </div>
+                <div class="form-group">
+                    <label for="">Email<input id="email" class="form-control" type="text" name="email"></label>
+                </div>
+                <div class="form-group">
+                    <label for="">Contraseña<input id="email" class="form-control" type="text" name="password"></label>
+                </div>
+                <button type="submit" class="btn btn-primary" onclick="guardarLogIn()">registrarse</button>
+            </form>
+        </section>
 
-            <div class="container">
-                <label for="uname"><b>Username</b></label>
-                <input type="text" placeholder="Enter Username" name="uname" required>
-
-                <label for="psw"><b>Password</b></label>
-                <input type="password" placeholder="Enter Password" name="psw" required>
-
-                <button type="submit">Login</button>
-                <label>
-                    <input type="checkbox" checked="checked" name="remember"> Remember me
-                </label>
-            </div>
-
-            <div class="container" style="background-color:#f1f1f1">
-                <button type="button" onclick="document.getElementById('id01').style.display='none'"
-                    class="cancelbtn">Cancel</button>
-                <span class="psw">Forgot <a href="#">password?</a></span>
-            </div>
-        </form>
-    </div>
-
+    </main>
 </body>
 <script src="js/testLogIn.js"></script>
+
 </html>
