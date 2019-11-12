@@ -14,63 +14,59 @@
 <body>
     <main class="container cajaCentrada">
         <h1 id="titular">ATM iFP</h1>
-        <section>
+        <section id="secI">
             <button id="registrarse" onclick="document.getElementById('id01').style.display='block'">registrarse</button>
-
             <div id="id01" class="modal">
-
                 <form class="modal-content animate" method="post">
                     <div class="imgcontainer">
-                        <!-- <h3>Registrarse</h3> -->
+                        <h3 id="regH3">Registrarse</h3>
                         <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
-                        <!-- <img src="img_avatar2.png" alt="Avatar" class="avatar"> -->
                     </div>
-
                     <div class="container">
-                        <h3>Registrarse</h3>
                         <label for="uname"><b>Usuario</b></label>
                         <input type="text" placeholder="usuario" name="uname" required>
+
+                        <label for="email"><b>Email</b></label>
+                        <input type="text" placeholder="saldo" name="email" required>
+
+                        <label for="saldo"><b>Saldo</b></label>
+                        <input type="text" placeholder="email" name="saldo" required>
 
                         <label for="psw"><b>Contraseña</b></label>
                         <input type="password" placeholder="contraseña" name="psw" required>
 
-                        <button type="submit">registrarse</button>
-                        <label>
-                                <input type="checkbox" checked="checked" name="remember"> recordarme
-                            </label>
+                        <button id="registrarse2" type="submit">registrarse</button>
                     </div>
-
                     <div class="container" style="background-color:#f1f1f1">
                         <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">cancelar</button>
                     </div>
                 </form>
             </div>
         </section>
-        <section>
-            <button id="login" onclick="document.getElementById('id01').style.display='block'">log In</button>
-
-            <div id="id01" class="modal">
-
+        <section id="secD">
+            <button id="login" onclick="document.getElementById('id02').style.display='block'">log In</button>
+            <div id="id02" class="modal">
                 <form class="modal-content animate" method="post">
                     <div class="imgcontainer">
-                        <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+                        <h3 id="logH3">Log In</h3>
+                        <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">&times;</span>
                     </div>
-
                     <div class="container">
-                        <label for="uname"><b>Usuario</b></label>
-                        <input type="text" placeholder="usuario" name="uname" required>
+
+                        <label for="email"><b>Email</b></label>
+                        <input type="text" placeholder="email" name="email" required>
 
                         <label for="psw"><b>Contraseña</b></label>
                         <input type="password" placeholder="contraseña" name="psw" required>
 
-                        <button type="submit">Log In</button>
+                        <button id="logIn2" type="submit">log In</button>
                         <label>
                                 <input type="checkbox" checked="checked" name="remember"> recordarme
                             </label>
                     </div>
 
                     <div class="container" style="background-color:#f1f1f1">
-                        <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">cancelar</button>
+                        <button type="button" onclick="document.getElementById('id02').style.display='none'" class="cancelbtn">cancelar</button>
                     </div>
                 </form>
             </div>

@@ -28,22 +28,45 @@ body {
 
 #titular {
     text-align: center;
+    margin-top: 25px;
 }
 
-#registrarse {
+#registrarse,
+#registrarse2 {
     background-color: #007bff;
 }
 
-#login {
+#regH3 {
+    color: #007bff;
+}
+
+#login,
+#logIn2 {
     background-color: rgb(255, 180, 67);
+}
+
+#logH3 {
+    color: rgb(255, 180, 67);
+}
+
+#registrarse,
+#login {
+    width: 80%;
+    height: 150px;
+    margin-left: 45px;
+}
+
+#secI,
+#secD {
+    /* text-align: center; */
+    vertical-align: top;
+    display: inline-block;
+    width: 48%;
+    margin-top: 50px;
 }
 
 .txtLabel {
     color: rgb(105, 105, 105);
-}
-
-h3 {
-    color: #007bff;
 }
 
 
