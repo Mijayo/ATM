@@ -13,27 +13,27 @@
 
 <body>
     <main class="container cajaCentrada">
-        <h1 id="titular">ATM iFP</h1>
+        <h1 id="titular">CAJERO iFP</h1>
         <section id="secI">
             <button id="registrarse" onclick="document.getElementById('id01').style.display='block'">registrarse</button>
             <div id="id01" class="modal">
-                <form class="modal-content animate" method="post">
+                <form class="modal-content animate">
                     <div class="imgcontainer">
                         <h3 id="regH3">Registrarse</h3>
                         <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
                     </div>
                     <div class="container">
                         <label for="uname"><b>Usuario</b></label>
-                        <input type="text" placeholder="usuario" name="uname" required>
+                        <input id="ux" type="text" placeholder="usuario" name="usuario" requiered>
 
                         <label for="email"><b>Email</b></label>
-                        <input type="text" placeholder="saldo" name="email" required>
+                        <input id="email" type="text" placeholder="email" name="email" requiered>
 
                         <label for="saldo"><b>Saldo</b></label>
-                        <input type="text" placeholder="email" name="saldo" required>
+                        <input id="saldo" type="text" placeholder="saldo" name="saldo" requiered>
 
                         <label for="psw"><b>Contraseña</b></label>
-                        <input type="password" placeholder="contraseña" name="psw" required>
+                        <input id="pwd" type="password" placeholder="contraseña" name="psw" requiered>
 
                         <button id="registrarse2" type="submit">registrarse</button>
                     </div>
@@ -46,7 +46,7 @@
         <section id="secD">
             <button id="login" onclick="document.getElementById('id02').style.display='block'">log In</button>
             <div id="id02" class="modal">
-                <form class="modal-content animate" method="post">
+                <form class="modal-content animate">
                     <div class="imgcontainer">
                         <h3 id="logH3">Log In</h3>
                         <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">&times;</span>
