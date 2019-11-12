@@ -1,23 +1,54 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
 body {
     font-family: Arial, Helvetica, sans-serif;
 }
 
+.imgBody {
+    position: relative;
+    height: 100vh;
+    background-image: url("img/master-card-debit-card-210742.jpg");
+    filter: opacity(75%);
+}
+
 .cajaCentrada {
-    margin-top: 20vh; 
-    width: 80%;
+    position: absolute;
+    z-index: 9;
+    margin-top: 15vh;
+    margin-left: 20%;
+    width: 60%;
+    height: 400px;
     box-shadow: 0 5px 10px -5px;
     border-radius: 10px;
+    background-color: rgb(255, 255, 255);
 }
 
 #titular {
-  text-align: center;
+    text-align: center;
+}
+
+#registrarse {
+    background-color: #007bff;
 }
 
 #login {
-    float: right;
+    background-color: rgb(255, 180, 67);
 }
 
+.txtLabel {
+    color: rgb(105, 105, 105);
+}
+
+h3 {
+    color: #007bff;
+}
+
+
 /* Full-width input fields */
+
 input[type=text],
 input[type=password] {
     width: 100%;
@@ -28,29 +59,35 @@ input[type=password] {
     box-sizing: border-box;
 }
 
+
 /* Set a style for all buttons */
+
 button {
-    background-color: #4CAF50;
     color: white;
     padding: 14px 20px;
     margin: 8px 0;
     border: none;
     cursor: pointer;
     width: 100%;
+    border-radius: 10px;
 }
 
 button:hover {
     opacity: 0.8;
 }
 
+
 /* Extra styles for the cancel button */
+
 .cancelbtn {
     width: auto;
     padding: 10px 18px;
     background-color: #f44336;
 }
 
+
 /* Center the image and position the close button */
+
 .imgcontainer {
     text-align: center;
     margin: 24px 0 12px 0;
@@ -71,7 +108,9 @@ span.psw {
     padding-top: 16px;
 }
 
+
 /* The Modal (background) */
+
 .modal {
     display: none;
     /* Hidden by default */
@@ -94,7 +133,9 @@ span.psw {
     padding-top: 60px;
 }
 
+
 /* Modal Content/Box */
+
 .modal-content {
     background-color: #fefefe;
     margin: 5% auto 15% auto;
@@ -104,7 +145,9 @@ span.psw {
     /* Could be more or less, depending on screen size */
 }
 
+
 /* The Close Button (x) */
+
 .close {
     position: absolute;
     right: 25px;
@@ -116,11 +159,13 @@ span.psw {
 
 .close:hover,
 .close:focus {
-    color: red;
+    color: rgb(76, 119, 175);
     cursor: pointer;
 }
 
+
 /* Add Zoom Animation */
+
 .animate {
     -webkit-animation: animatezoom 0.6s;
     animation: animatezoom 0.6s
@@ -130,7 +175,6 @@ span.psw {
     from {
         -webkit-transform: scale(0)
     }
-
     to {
         -webkit-transform: scale(1)
     }
@@ -140,19 +184,19 @@ span.psw {
     from {
         transform: scale(0)
     }
-
     to {
         transform: scale(1)
     }
 }
 
+
 /* Change styles for span and cancel button on extra small screens */
+
 @media screen and (max-width: 300px) {
     span.psw {
         display: block;
         float: none;
     }
-
     .cancelbtn {
         width: 100%;
     }
