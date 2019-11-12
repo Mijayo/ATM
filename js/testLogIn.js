@@ -50,6 +50,17 @@ function registrarUsuario() {
     user.guardarLogIn(cont, ux, email, saldo, pwd);
 }
 
+function logearUsuario() {
+
+    // Valores de los campos de texto
+    let logMail = document.getElementById("logEmail").value;
+    let logPSW = document.getElementById("logPWD").value;
+
+    const uX = new Usuario(logMail, logPSW);
+
+    uX.verificarLogIn(logMail, logPSW);
+}
+
 class Usuario {
 
     constructor(conta, usuario, email, saldo, pwd) {
@@ -100,6 +111,17 @@ class Usuario {
         // Meterlo en localStorage
         localStorage.setItem('nuevoUsuario', JSON.stringify(arrayLocal));
 
+    }
+
+    verificarLogIn(ema, psw) {
+        /*alert(ema);
+        alert(psw);*/
+
+        /*if (ema !== null && psw !== null) {
+            window.location.href = "index.html";
+        }*/
+
+        window.location.href = "index.html";
     }
 
 }

@@ -26,6 +26,18 @@ body {
     background-color: rgb(255, 255, 255);
 }
 
+.cajaCentrada2 {
+    position: absolute;
+    z-index: 9;
+    margin-top: 15vh;
+    margin-left: 10%;
+    width: 80%;
+    height: 500px;
+    box-shadow: 0 5px 10px -5px;
+    border-radius: 10px;
+    background-color: rgb(255, 255, 255);
+}
+
 #titular {
     text-align: center;
     margin-top: 25px;

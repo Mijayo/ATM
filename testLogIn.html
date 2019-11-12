@@ -54,12 +54,12 @@
                     <div class="container">
 
                         <label for="email"><b>Email</b></label>
-                        <input type="text" placeholder="email" name="email" required>
+                        <input id="logEmail" type="text" placeholder="email" name="email" required>
 
                         <label for="psw"><b>Contraseña</b></label>
-                        <input type="password" placeholder="contraseña" name="psw" required>
+                        <input id="logPWD" type="password" placeholder="contraseña" name="psw" required>
 
-                        <button id="logIn2" type="submit">log In</button>
+                        <button id="logIn2" type="submit" onclick="logearUsuario()">log In</button>
                         <label>
                                 <input type="checkbox" checked="checked" name="remember"> recordarme
                             </label>
