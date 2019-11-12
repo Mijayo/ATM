@@ -8,15 +8,16 @@ class LogIn {
     }
 
     guardarLogIn() {
-
+        let cont = 0;
         let ux = document.getElementById("ux").value;
         let email = document.getElementById("email").value;
 
         let objLocalStorage = {
+            id: cont++,
             key: `${ux}`,
             email: `${email}`
         };
-
+        
         if (ux === null || email === null) {
             // Aqui obligamos a guardar
             this.guardarLogIn(objLocalStorage);
