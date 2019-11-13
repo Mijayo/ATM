@@ -34,20 +34,20 @@ const click = document.getElementById('registrarse2').addEventListener('click', 
 
     // Valores de los campos de texto
     let ux = document.getElementById("ux").value;
-    let email = document.getElementById("email").value;
+    let dni = document.getElementById("dni").value;
     let saldo = document.getElementById("saldo").value;
     let pwd = document.getElementById("pwd").value;
 
-    if (ux == "" && email == "" && saldo == "" && pwd == "") {
+    if (ux == "" && dni == "" && saldo == "" && pwd == "") {
         alert('los campos no pueden estar vacios');
     } else {
         // Creamos el obj de la clase USUARIO
-        const user = new Usuario(ux, email, saldo, pwd);
+        const user = new Usuario(ux, dni, saldo, pwd);
 
         // localStorage.setItem(email, conversor(user));
 
         // Enviamos los parametros a la clase USUARIO
-        user.guardarLogIn(ux, email, saldo, pwd);
+        user.guardarLogIn(ux, dni, saldo, pwd);
     }
 
 });
@@ -69,9 +69,9 @@ function logearUsuario() {
 // CLASE //
 class Usuario {
 
-    constructor(usuario, email, saldo, pwd) {
+    constructor(usuario, dni, saldo, pwd) {
         this.usuario = usuario;
-        this.email = email;
+        this.dni = dni;
         this.saldo = saldo;
         this.pwd = pwd;
     }
@@ -100,7 +100,7 @@ class Usuario {
         let subPasw = p.substring(10, 14);
 
         if ((ema == subEmail) && (pwd == subPasw)) {
-            alert("Entro");
+            // alert("Entro");
             location.href = location.origin + "/index.html";
         } else {
             alert("error");
