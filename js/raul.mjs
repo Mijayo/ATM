@@ -1,3 +1,5 @@
+alert("Hola RAUL");
+
 class Datos  {
     constructor(usuario, dni, saldo, pwd) {
         this.usuario = usuario;
@@ -7,6 +9,6 @@ class Datos  {
     }
 }
 
-import { hello } from '/Alumno/Documents/testLogIn'; // or './module'
-let val = hello();  // val is "Hello";
+import { hello } from './testLogIn'; 
+let val = hello();  
 alert(val);
