@@ -9,12 +9,38 @@ $(document).ready(function() {
 
 function bienvenida() {
     // alert("HOLA DIEGOOOOO");
-    let local = localStorage.getItem('nuevoUsuario');
-    alert(local);
+
+    let local = JSON.parse(localStorage.getItem("nuevoUsuario"));
+
+    local.forEach(usuarioRegistrado => {
+
+        let usuario = usuarioRegistrado.usuario;
+        let email = usuarioRegistrado.email;
+        let saldo = usuarioRegistrado.saldo;
+        let password = usuarioRegistrado.password;
+
+        let obj = new Datos(usuario, email, saldo, password);
+        obj.llamadaDatos(usuario, email, saldo, password);
+
+        return (String `${usuarioRegistrado.usuario}`);
+    });
 }
 
 class Datos {
-    constructor() {
 
+    constructor(usuario, email, saldo, pass) {
+        this.usuario = usuario;
+        this.email = email;
+        this.saldo = saldo;
+        this.password = pass;
     }
+
+    llamadaDatos(usu, ma, sal, p) {
+        alert(usu);
+        alert(ma);
+        alert(sal);
+        alert(p);
+    }
+
+
 }

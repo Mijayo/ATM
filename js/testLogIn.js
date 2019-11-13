@@ -109,9 +109,12 @@ class Usuario {
 
         if (localStorage.getItem(objLocalStorage.email) === null) {
             localStorage.setItem(objLocalStorage.email, conversor(objLocalStorage));
+        }
+        /*else if (localStorage.getItem(objLocalStorage.email) !== null) {
+                   localStorage.setItem(objLocalStorage.email, conversor(objLocalStorage));
+               }*/
 
-        } else if (localStorage.getItem(objLocalStorage.email) !== null) {
-            // localStorage.setItem(objLocalStorage.email, conversor(objLocalStorage));
+        if (localStorage.getItem('nuevoUsuario') === null) {
             arrayLocal = [];
         } else {
             arrayLocal = JSON.parse(localStorage.getItem('nuevoUsuario'));
