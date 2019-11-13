@@ -13,43 +13,32 @@ window.onclick = function(event) {
     }
 };
 
-
+// CONVERTIMOS EL OBJ A STRING
 function conversor(usuario) {
     return `${usuario.email}&${usuario.pwd}#${usuario.usuario}`;
 }
 
-let cont = 0;
 
-// Evento submit del formulario
-// form.addEventListener('click', registrarUsuario());
-
-function registrarUsuario() {
-    // alert("hola");
-
+// REGISTRAMOS USUARIO
+const click = document.getElementById('registrarse2').addEventListener('click', function registrarUsuario() {
+  
     // Valores de los campos de texto
     let ux = document.getElementById("ux").value;
     let email = document.getElementById("email").value;
     let saldo = document.getElementById("saldo").value;
     let pwd = document.getElementById("pwd").value;
 
-    /*console.log(objLocalStorage.id);
-    console.log(objLocalStorage.usuario);
-    console.log(objLocalStorage.email);
-    console.log(objLocalStorage.saldo);
-    console.log(objLocalStorage.password);*/
+    // Creamos el obj de la clase USUARIO
+    const user = new Usuario(ux, email, saldo, pwd);
+    
+    localStorage.setItem(email, conversor(user));
 
-    // Creamos el obj de la clase
-    const user = new Usuario(cont++, ux, email, saldo, pwd);
-
-    localStorage.setItem(cont++, conversor(user));
-
-    /*alert(ux);
-    alert(email);
-    alert(pwd);*/
-
+    // Enviamos los parametros a la clase USUARIO
     user.guardarLogIn(cont, ux, email, saldo, pwd);
-}
+});
 
+
+// LOGEAMOS AL USUARIO
 function logearUsuario() {
 
     // Valores de los campos de texto
@@ -61,6 +50,8 @@ function logearUsuario() {
     uX.verificarLogIn(logMail, logPSW);
 }
 
+
+// CLASE //
 class Usuario {
 
     constructor(conta, usuario, email, saldo, pwd) {
@@ -70,18 +61,10 @@ class Usuario {
         this.saldo = saldo;
         this.pwd = pwd;
 
-        /*alert('Usuario: ' + this.usuario);
-        alert('Email: ' + this.email);
-        alert('Saldo: ' + this.saldo);
-        alert('Pass: ' + this.pwd);*/
     }
 
+    // METODO PARA GUARDAR EL USUARIO
     guardarLogIn(c, u, e, s, p) {
-
-        /*alert('UX: ' + u);
-        alert('Mail: ' + e);
-        alert('Monto: ' + s);
-        alert('PW: ' + p);*/
 
         // Creamos el OBJ para guardarlo en el localStorage
         let objLocalStorage = {
@@ -91,9 +74,6 @@ class Usuario {
             saldo: s,
             password: p
         };
-
-        // alert(objLocalStorage.usuario);
-
 
         // Definimos la variable del array para almacenar el objeto itemObject
         var arrayLocal;
@@ -112,7 +92,8 @@ class Usuario {
         localStorage.setItem('nuevoUsuario', JSON.stringify(arrayLocal));
 
     }
-
+    
+    // METODO PARA VERIFICAR EL LOGIN
     verificarLogIn(ema, psw) {
         /*alert(ema);
         alert(psw);*/

@@ -6,7 +6,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+        integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
     <link rel="stylesheet" href="testLogIn.css">
     <title>ATM LogIn</title>
 </head>
@@ -14,45 +15,63 @@
 <body>
     <main class="container cajaCentrada">
         <h1 id="titular">CAJERO iFP</h1>
+
+        <!-- SECCION DE LA IZQUIERDA -->
         <section id="secI">
-            <button id="registrarse" onclick="document.getElementById('id01').style.display='block'">registrarse</button>
+            <!-- BOTON PANTALLA INICIAL -->
+            <button id="registrarse"
+                onclick="document.getElementById('id01').style.display='block'">registrarse</button>
+            <!-- VENTANA MODAL -->
             <div id="id01" class="modal">
+                <!-- FORMULARIO -->
                 <form class="modal-content animate">
                     <div class="imgcontainer">
                         <h3 id="regH3">Registrarse</h3>
-                        <span onclick="document.getElementById('id01').style.display='none'" class="close" title="Close Modal">&times;</span>
+                        <!-- BOTON X PARA CERRAR LA VENTANA -->
+                        <span onclick="document.getElementById('id01').style.display='none'" class="close"
+                            title="cerrar ventana">&times;</span>
                     </div>
+                    <!-- CONTENEDOR DEL FORMULARIO -->
                     <div class="container">
                         <label for="uname"><b>Usuario</b></label>
                         <input id="ux" type="text" placeholder="usuario" name="usuario" requiered>
 
                         <label for="email"><b>Email</b></label>
-                        <input id="email" type="text" placeholder="email" name="email" requiered>
+                        <input id="email" type="text" placeholder="email" name="email" maxlength="20" requiered>
 
                         <label for="saldo"><b>Saldo</b></label>
                         <input id="saldo" type="text" placeholder="saldo" name="saldo" requiered>
 
                         <label for="psw"><b>Contraseña</b></label>
-                        <input id="pwd" type="password" placeholder="contraseña" name="psw" requiered>
+                        <input id="pwd" type="password" placeholder="contraseña" name="psw" maxlength="8" requiered>
 
                         <button id="registrarse2" type="submit">registrarse</button>
                     </div>
+                    <!-- BOTON CANCELAR -->
                     <div class="container" style="background-color:#f1f1f1">
-                        <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">cancelar</button>
+                        <button type="button" onclick="document.getElementById('id01').style.display='none'"
+                            class="cancelbtn">cancelar</button>
                     </div>
                 </form>
             </div>
         </section>
+
+        <!-- SECCION DE LA DERECHA -->
         <section id="secD">
+            <!-- BOTON PANTALLA INICIAL -->
             <button id="login" onclick="document.getElementById('id02').style.display='block'">log In</button>
+            <!-- VENTANA MODAL -->
             <div id="id02" class="modal">
+                <!-- FORMULARIO -->
                 <form class="modal-content animate">
                     <div class="imgcontainer">
                         <h3 id="logH3">Log In</h3>
-                        <span onclick="document.getElementById('id02').style.display='none'" class="close" title="Close Modal">&times;</span>
+                        <!-- BOTON X PARA CERRAR LA VENTANA -->
+                        <span onclick="document.getElementById('id02').style.display='none'" class="close"
+                            title="cerrar ventana">&times;</span>
                     </div>
+                    <!-- CONTENEDOR DEL FORMULARIO -->
                     <div class="container">
-
                         <label for="email"><b>Email</b></label>
                         <input id="logEmail" type="text" placeholder="email" name="email" required>
 
@@ -61,17 +80,19 @@
 
                         <button id="logIn2" type="submit" onclick="logearUsuario()">log In</button>
                         <label>
-                                <input type="checkbox" checked="checked" name="remember"> recordarme
-                            </label>
+                            <input type="checkbox" checked="checked" name="remember"> recordarme
+                        </label>
                     </div>
-
+                    <!-- BOTON CANCELAR -->
                     <div class="container" style="background-color:#f1f1f1">
-                        <button type="button" onclick="document.getElementById('id02').style.display='none'" class="cancelbtn">cancelar</button>
+                        <button type="button" onclick="document.getElementById('id02').style.display='none'"
+                            class="cancelbtn">cancelar</button>
                     </div>
                 </form>
             </div>
         </section>
     </main>
+    <!-- IMAGEN DE FONDO -->
     <div class="imgBody"></div>
 </body>
 <script src="js/testLogIn.js"></script>
