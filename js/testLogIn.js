@@ -65,6 +65,10 @@ function logearUsuario() {
     uX.verificarLogIn(logMail, logPSW);
 }
 
+export function hello() {
+  return "Hello";
+}
+
 
 // CLASE //
 class Usuario {
