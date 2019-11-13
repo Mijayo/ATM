@@ -1,5 +1,16 @@
 // localStorage.clear();
 
+$(document).ready(function() {
+    $("#registrarse2").click(function() {
+        // Libreria notify.js
+        $.notify("Usuario registrado con exito", {
+            className: 'success',
+            position: 'bottom right',
+            autoHideDelay: 4500
+        });
+    });
+});
+
 // Quitamos todos los parametros de la URL
 window.history.pushState("object or string", "Title", "/" + window.location.href.substring(window.location.href.lastIndexOf('/') + 1).split("?")[0]);
 
@@ -7,7 +18,7 @@ window.history.pushState("object or string", "Title", "/" + window.location.href
 var modal = document.getElementById('id01');
 
 // When the user clicks anywhere outside of the modal, close it
-window.onclick = function (event) {
+window.onclick = function(event) {
     if (event.target == modal) {
         modal.style.display = "none";
     }
@@ -44,32 +55,34 @@ const click = document.getElementById('registrarse2').addEventListener('click', 
         // Creamos el obj de la clase USUARIO
         const user = new Usuario(ux, dni, saldo, pwd);
 
-        // localStorage.setItem(email, conversor(user));
-
         // Enviamos los parametros a la clase USUARIO
         user.guardarLogIn(ux, dni, saldo, pwd);
     }
+
+    // Vaciamos los campos de texto
+    document.getElementById("ux").value = "";
+    document.getElementById("dni").value = "";
+    document.getElementById("saldo").value = "";
+    document.getElementById("pwd").value = "";
 
 });
 
 
 // LOGEAMOS AL USUARIO
-
-const click2 = document.getElementById('logIn2').addEventListener('click', function logearUsuario() {
+function logearUsuario() {
 
     // Valores de los campos de texto
     let logMail = document.getElementById("logEmail").value;
     let logPSW = document.getElementById("logPWD").value;
 
-    const uX = new Usuario(logMail, logPSW);
+    if (logMail == "" && logPSW == "") {
+        alert('los campos no pueden estar vacios');
+    } else {
+        const uX = new Usuario(logMail, logPSW);
 
-    uX.verificarLogIn(logMail, logPSW);
-});
-
-export function hello() {
-  return "Hello";
+        uX.verificarLogIn(logMail, logPSW);
+    }
 }
-
 
 // CLASE //
 class Usuario {
@@ -83,6 +96,8 @@ class Usuario {
 
     // METODO PARA GUARDAR EL USUARIO
     guardarLogIn(u, e, s, p) {
+        // Array
+        let arrayLocal;
 
         // Creamos el OBJ para guardarlo en el localStorage
         let objLocalStorage = {
@@ -94,7 +109,19 @@ class Usuario {
 
         if (localStorage.getItem(objLocalStorage.email) === null) {
             localStorage.setItem(objLocalStorage.email, conversor(objLocalStorage));
+
+        } else if (localStorage.getItem(objLocalStorage.email) !== null) {
+            // localStorage.setItem(objLocalStorage.email, conversor(objLocalStorage));
+            arrayLocal = [];
+        } else {
+            arrayLocal = JSON.parse(localStorage.getItem('nuevoUsuario'));
         }
+
+        // 
+        arrayLocal.push(objLocalStorage);
+
+        // Meterlo en localStorage
+        localStorage.setItem('nuevoUsuario', JSON.stringify(arrayLocal));
     }
 
     // METODO PARA VERIFICAR EL LOGIN
@@ -111,94 +138,4 @@ class Usuario {
             alert("error");
         }
     }
-
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-/*class LogIn {
-
-
-    guardarLogIn() {
-        // alert("hola");
-        let arrayLocal;
-
-        let cont = 0;
-
-        // Valores de los campos de texto
-        let ux = document.getElementById("ux").value;
-        let email = document.getElementById("email").value;
-        let pwd = document.getElementById("pwd").value;
-
-        console.log(ux);
-        console.log(email);
-        console.log(pwd);
-        // Creamos el OBJ para guardarlo en el localStorage
-        // let objLocalStorage = {
-        //     id: cont++,
-        //     usuario: `${ux}`,
-        //     email: `${email}`,
-        //     password: `${pwd}`
-        // };
-
-        // console.log(JSON.stringify(objLocalStorage));
-
-        /*if (ux === null || email === null) {
-            // Aqui obligamos a guardar
-            this.guardarLogIn(objLocalStorage);
-
-        } else {
-            this.guardarLogIn(objLocalStorage);
-        }
-
-        // Definimos la variable del array para almacenar el objeto itemObject
-        //var arrayLocal;
-
-        // if (localStorage.getItem('nuevoUsuario') === null) {
-        //     // Defino el array
-        //     arrayLocal = [];
-        // } else {
-        //     arrayLocal = JSON.parse(localStorage.getItem('nuevoUsuario'));
-        // }
-
-
-        // arrayLocal.push(objLocalStorage);
-
-        // // Meterlo en localStorage
-        // localStorage.setItem('nuevoUsuario', JSON.stringify(arrayLocal));
-
-        // // alert(obj);
-    }
-
-    verificarLogin() {
-
-
-        // return cadena;
-    }
-}*/
-
-// document.getElementById("boton").addEventListener("click", LogIn.guardarLogIn());
-// const obj = new LogIn();
-// console.log(obj.guardarLogIn());
-// console.log(email);
