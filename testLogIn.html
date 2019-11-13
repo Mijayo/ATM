@@ -24,7 +24,7 @@
             <!-- VENTANA MODAL -->
             <div id="id01" class="modal">
                 <!-- FORMULARIO -->
-                <form class="modal-content animate">
+                <div class="modal-content animate">
                     <div class="imgcontainer">
                         <h3 id="regH3">Registrarse</h3>
                         <!-- BOTON X PARA CERRAR LA VENTANA -->
@@ -34,17 +34,18 @@
                     <!-- CONTENEDOR DEL FORMULARIO -->
                     <div class="container">
                         <label for="uname"><b>Usuario</b></label>
-                        <input id="ux" type="text" placeholder="usuario" name="usuario" requiered>
+                        <input id="ux" type="text" placeholder="usuario" name="usuario" required>
 
-                        <label for="email"><b>Email</b></label>
-                        <input id="email" type="text" placeholder="email" name="email" maxlength="20" requiered>
+                        <label for="email"><b>DNI</b></label>
+                        <input id="email" type="text" placeholder="email" name="email" maxlength="9" required>
 
                         <label for="saldo"><b>Saldo</b></label>
-                        <input id="saldo" type="text" placeholder="saldo" name="saldo" requiered>
+                        <input id="saldo" type="text" placeholder="saldo" name="saldo" required>
 
                         <label for="psw"><b>Contraseña</b></label>
-                        <input id="pwd" type="password" placeholder="contraseña" name="psw" maxlength="8" requiered>
+                        <input id="pwd" type="password" placeholder="contraseña" name="psw" maxlength="4" required>
 
+                        <!-- BOTON PARA REGISTRAR -->
                         <button id="registrarse2" type="submit">registrarse</button>
                     </div>
                     <!-- BOTON CANCELAR -->
@@ -52,7 +53,7 @@
                         <button type="button" onclick="document.getElementById('id01').style.display='none'"
                             class="cancelbtn">cancelar</button>
                     </div>
-                </form>
+                </div>
             </div>
         </section>
 
@@ -63,7 +64,7 @@
             <!-- VENTANA MODAL -->
             <div id="id02" class="modal">
                 <!-- FORMULARIO -->
-                <form class="modal-content animate">
+                <div class="modal-content animate">
                     <div class="imgcontainer">
                         <h3 id="logH3">Log In</h3>
                         <!-- BOTON X PARA CERRAR LA VENTANA -->
@@ -72,8 +73,8 @@
                     </div>
                     <!-- CONTENEDOR DEL FORMULARIO -->
                     <div class="container">
-                        <label for="email"><b>Email</b></label>
-                        <input id="logEmail" type="text" placeholder="email" name="email" required>
+                        <label for="email"><b>DNI</b></label>
+                        <input id="logEmail" type="text" placeholder="DNI" maxlength="9" name="email" required>
 
                         <label for="psw"><b>Contraseña</b></label>
                         <input id="logPWD" type="password" placeholder="contraseña" name="psw" required>
@@ -88,7 +89,7 @@
                         <button type="button" onclick="document.getElementById('id02').style.display='none'"
                             class="cancelbtn">cancelar</button>
                     </div>
-                </form>
+                </div>
             </div>
         </section>
     </main>
