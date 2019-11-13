@@ -19,10 +19,26 @@ function bienvenida() {
         let saldo = usuarioRegistrado.saldo;
         let password = usuarioRegistrado.password;
 
-        let obj = new Datos(usuario, email, saldo, password);
-        obj.llamadaDatos(usuario, email, saldo, password);
+        let newObj = {
+            usus: `${usuario}`,
+            mail: `${email}`,
+            monto: `${saldo}`,
+            pwd: `${password}`
+        };
 
-        return (String `${usuarioRegistrado.usuario}`);
+        /*Array.from(newObj);
+        alert(Array);*/
+
+        let array = [`${usuario}`, `${email}`, `${saldo}`, `${password}`];
+        alert(array);
+
+        for (i = 0; i < array.length; i++) {
+            if (usus == array[i].usus && pwd == array[i].pwd) {
+                let obj = new Datos(usuario, email, saldo, password);
+                obj.llamadaDatos(usuario, email, saldo, password);
+            }
+        }
+        //return (String `${usuarioRegistrado.usuario}`);
     });
 }
 
