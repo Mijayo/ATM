@@ -54,7 +54,8 @@ const click = document.getElementById('registrarse2').addEventListener('click', 
 
 
 // LOGEAMOS AL USUARIO
-function logearUsuario() {
+
+const click2 = document.getElementById('logIn2').addEventListener('click', function logearUsuario() {
 
     // Valores de los campos de texto
     let logMail = document.getElementById("logEmail").value;
@@ -63,7 +64,7 @@ function logearUsuario() {
     const uX = new Usuario(logMail, logPSW);
 
     uX.verificarLogIn(logMail, logPSW);
-}
+});
 
 export function hello() {
   return "Hello";

@@ -7,5 +7,6 @@ class Datos  {
     }
 }
 
-import { perico } from '/testLogIn.js'; // or './module'
-let val = perico();  // val is "Hello";
+import { hello } from '/Alumno/Documents/testLogIn'; // or './module'
+let val = hello();  // val is "Hello";
+alert(val);
