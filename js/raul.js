@@ -1,11 +1,11 @@
 // alert("HOLA DIEGOOOOO");
-$(document).ready(function() {
+/*$(document).ready(function() {
     $.getScript("testLogIn.js", function() {
 
     });
 
     // alert("Hola RAUL");
-});
+});*/
 
 function bienvenida() {
     // alert("HOLA DIEGOOOOO");
@@ -26,18 +26,19 @@ function bienvenida() {
             pwd: `${password}`
         };
 
+        let obj = new Datos(usuario, email, saldo, password);
+        obj.llamadaDatos(usuario, email, saldo, password);
+
         /*Array.from(newObj);
         alert(Array);*/
 
-        let array = [`${usuario}`, `${email}`, `${saldo}`, `${password}`];
-        alert(array);
+        /*let array = [`${usuario}`, `${email}`, `${saldo}`, `${password}`];
+        alert(array);*/
 
-        for (i = 0; i < array.length; i++) {
+        /*for (i = 0; i < array.length; i++) {
             if (usus == array[i].usus && pwd == array[i].pwd) {
-                let obj = new Datos(usuario, email, saldo, password);
-                obj.llamadaDatos(usuario, email, saldo, password);
             }
-        }
+        }*/
         //return (String `${usuarioRegistrado.usuario}`);
     });
 }

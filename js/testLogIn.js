@@ -39,7 +39,6 @@ function convLocal(email) {
     return String(convert);
 }
 
-
 // REGISTRAMOS USUARIO
 const click = document.getElementById('registrarse2').addEventListener('click', function registrarUsuario() {
 
@@ -96,35 +95,58 @@ class Usuario {
 
     // METODO PARA GUARDAR EL USUARIO
     guardarLogIn(u, e, s, p) {
+        let obj_Dni;
+
         // Array
         let arrayLocal;
 
         // Creamos el OBJ para guardarlo en el localStorage
         let objLocalStorage = {
             usuario: u,
-            email: e,
+            dni: e,
             saldo: s,
             password: p
         };
 
-        if (localStorage.getItem(objLocalStorage.email) === null) {
+        //console.log(typeof(objLocalStorage.dni));
+        //console.log(e_Dni);
+
+        /*if (localStorage.getItem(objLocalStorage.email) === null) {
             localStorage.setItem(objLocalStorage.email, conversor(objLocalStorage));
         }
-        /*else if (localStorage.getItem(objLocalStorage.email) !== null) {
+        else if (localStorage.getItem(objLocalStorage.email) !== null) {
                    localStorage.setItem(objLocalStorage.email, conversor(objLocalStorage));
                }*/
 
-        if (localStorage.getItem('nuevoUsuario') === null) {
+        if (localStorage.getItem('usuarioRegistrado') === null) {
             arrayLocal = [];
         } else {
-            arrayLocal = JSON.parse(localStorage.getItem('nuevoUsuario'));
+            arrayLocal = JSON.parse(localStorage.getItem('usuarioRegistrado'));
         }
 
         // 
         arrayLocal.push(objLocalStorage);
 
+        localStorage.setItem('usuarioRegistrado', JSON.stringify(arrayLocal));
+
+        obj_Dni = JSON.parse(localStorage.getItem('usuarioRegistrado'));
+
+        obj_Dni.forEach(element => {
+            //console.log(PUTODNI);
+            if (element.dni === objLocalStorage.dni) {
+                //alert("mismo DNI");
+                // localStorage.removeItem("usuarioRegistrado");
+            }
+        });
+
+
         // Meterlo en localStorage
-        localStorage.setItem('nuevoUsuario', JSON.stringify(arrayLocal));
+        /*if (PUTODNI === e_Dni) {
+            alert("mismo DNI");
+        } else {
+            localStorage.setItem('usuarioRegistrado', JSON.stringify(arrayLocal));
+        }*/
+
     }
 
     // METODO PARA VERIFICAR EL LOGIN
