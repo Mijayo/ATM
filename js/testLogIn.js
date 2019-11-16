@@ -1,5 +1,9 @@
 // localStorage.clear();
 
+// Quitamos todos los parametros de la URL
+window.history.pushState("object or string", "Title", "/" + window.location.href.substring(window.location.href.lastIndexOf('/') + 1).split("?")[0]);
+
+////////////////////////////////////////
 $(document).ready(function() {
     $("#registrarse2").click(function() {
         // Libreria notify.js
@@ -10,9 +14,7 @@ $(document).ready(function() {
         });
     });
 });
-
-// Quitamos todos los parametros de la URL
-window.history.pushState("object or string", "Title", "/" + window.location.href.substring(window.location.href.lastIndexOf('/') + 1).split("?")[0]);
+/////////////////////////////////////
 
 // Get the modal
 var modal = document.getElementById('id01');
@@ -26,7 +28,9 @@ window.onclick = function(event) {
 
 // CONVERTIMOS EL OBJ A STRING
 function conversor(usuario) {
-    return `${usuario.email}&${usuario.password}#${usuario.usuario}`;
+    let str = usuario.usuario;
+    let toUpp = str.toUpperCase();
+    return `${usuario.dni}&${usuario.password}#${toUpp}@${usuario.saldo}`;
 }
 
 // CONVIERTO EL LOCAL A STRING
@@ -40,7 +44,7 @@ function convLocal(email) {
 }
 
 // REGISTRAMOS USUARIO
-const click = document.getElementById('registrarse2').addEventListener('click', function registrarUsuario() {
+function registrarUsuario() {
 
     // Valores de los campos de texto
     let ux = document.getElementById("ux").value;
@@ -64,7 +68,7 @@ const click = document.getElementById('registrarse2').addEventListener('click', 
     document.getElementById("saldo").value = "";
     document.getElementById("pwd").value = "";
 
-});
+}
 
 
 // LOGEAMOS AL USUARIO
@@ -78,12 +82,15 @@ function logearUsuario() {
         alert('los campos no pueden estar vacios');
     } else {
         const uX = new Usuario(logMail, logPSW);
-
         uX.verificarLogIn(logMail, logPSW);
     }
+
+    // Vaciar los campos
+    document.getElementById("logEmail").value = " ";
+    document.getElementById("logPWD").value = " ";
 }
 
-// CLASE //
+/////////////// CLASE USUARIO ////////////////////////
 class Usuario {
 
     constructor(usuario, dni, saldo, pwd) {
@@ -95,10 +102,6 @@ class Usuario {
 
     // METODO PARA GUARDAR EL USUARIO
     guardarLogIn(u, e, s, p) {
-        let obj_Dni;
-
-        // Array
-        let arrayLocal;
 
         // Creamos el OBJ para guardarlo en el localStorage
         let objLocalStorage = {
@@ -108,44 +111,18 @@ class Usuario {
             password: p
         };
 
-        //console.log(typeof(objLocalStorage.dni));
-        //console.log(e_Dni);
+        let z = conversor(objLocalStorage);
+        let zDNI = z.substring(0, 9);
 
-        /*if (localStorage.getItem(objLocalStorage.email) === null) {
-            localStorage.setItem(objLocalStorage.email, conversor(objLocalStorage));
-        }
-        else if (localStorage.getItem(objLocalStorage.email) !== null) {
-                   localStorage.setItem(objLocalStorage.email, conversor(objLocalStorage));
-               }*/
-
-        if (localStorage.getItem('usuarioRegistrado') === null) {
-            arrayLocal = [];
+        if (localStorage.getItem(objLocalStorage.dni) === null) {
+            localStorage.setItem(objLocalStorage.dni, conversor(objLocalStorage));
+        } else if (zDNI === objLocalStorage.dni) {
+            alert("No se puede registrar mas usuarios con un mismo DNI")
         } else {
-            arrayLocal = JSON.parse(localStorage.getItem('usuarioRegistrado'));
+            localStorage.setItem(objLocalStorage.dni, conversor(objLocalStorage));
         }
 
-        // 
-        arrayLocal.push(objLocalStorage);
-
-        localStorage.setItem('usuarioRegistrado', JSON.stringify(arrayLocal));
-
-        obj_Dni = JSON.parse(localStorage.getItem('usuarioRegistrado'));
-
-        obj_Dni.forEach(element => {
-            //console.log(PUTODNI);
-            if (element.dni === objLocalStorage.dni) {
-                //alert("mismo DNI");
-                // localStorage.removeItem("usuarioRegistrado");
-            }
-        });
-
-
-        // Meterlo en localStorage
-        /*if (PUTODNI === e_Dni) {
-            alert("mismo DNI");
-        } else {
-            localStorage.setItem('usuarioRegistrado', JSON.stringify(arrayLocal));
-        }*/
+        // bienvenida(objLocalStorage);
 
     }
 
@@ -155,12 +132,34 @@ class Usuario {
         let p = convLocal(ema);
         let subEmail = p.substring(0, 9);
         let subPasw = p.substring(10, 14);
+        let subNombre = p.substring(15, 20);
+        let subSaldo = p.substring(21, 25);
 
         if ((ema == subEmail) && (pwd == subPasw)) {
             // alert("Entro");
+            bienvenida(subEmail, subPasw, subNombre, subSaldo);
             location.href = location.origin + "/index.html";
-        } else {
+        } else if ((ema != subEmail) || (pwd != subPasw)) {
             alert("error");
         }
     }
+}
+
+function bienvenida(e, p, n, s) {
+    const local = new Datos(e, p, n, s);
+    local.llamadaDatos(e, p, n, s);
+}
+
+
+//// CLASE DATOS extends USUARIO /////
+class Datos extends Usuario {
+
+    constructor(usuario, dni, saldo, pwd) {
+        super(usuario, dni, saldo, pwd);
+    }
+
+    llamadaDatos(u, d, s, p) {
+        document.getElementById().innerHTML = ``;
+    }
+
 }

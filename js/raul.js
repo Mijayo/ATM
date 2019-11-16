@@ -5,7 +5,7 @@
     });
 
     // alert("Hola RAUL");
-});*/
+});
 
 function bienvenida() {
     // alert("HOLA DIEGOOOOO");
@@ -32,13 +32,13 @@ function bienvenida() {
         /*Array.from(newObj);
         alert(Array);*/
 
-        /*let array = [`${usuario}`, `${email}`, `${saldo}`, `${password}`];
-        alert(array);*/
+/*let array = [`${usuario}`, `${email}`, `${saldo}`, `${password}`];
+alert(array);*/
 
-        /*for (i = 0; i < array.length; i++) {
+/*for (i = 0; i < array.length; i++) {
             if (usus == array[i].usus && pwd == array[i].pwd) {
             }
-        }*/
+        }
         //return (String `${usuarioRegistrado.usuario}`);
     });
 }
@@ -60,4 +60,4 @@ class Datos {
     }
 
 
-}
+}*/
