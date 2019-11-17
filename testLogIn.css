@@ -7,12 +7,25 @@ body {
     font-family: Arial, Helvetica, sans-serif;
 }
 
+.imgLogo {
+    margin-left: 38%;
+    /* padding-top: 20px; */
+    /* margin-top: 200x; */
+    /* border: 1px solid red; */
+    position: absolute;
+    background-image: url("img/download-1.png");
+    background-size: cover;
+    width: 225px;
+    height: 62px;
+    z-index: 9;
+}
+
 .imgBody {
     position: relative;
     height: 100vh;
-    background-image: url("img/master-card-debit-card-210742.jpg");
+    background-image: url("img/download.png");
     background-size: cover;
-    filter: opacity(75%);
+    filter: opacity(85%);
 }
 
 .cajaCentrada {
@@ -80,6 +93,12 @@ body {
 
 .txtLabel {
     color: rgb(105, 105, 105);
+}
+
+#secPosG {
+    border: 1px solid red;
+    height: 350px;
+    margin-top: 35px;
 }
 
 

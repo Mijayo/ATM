@@ -34,10 +34,10 @@ function conversor(usuario) {
 }
 
 // CONVIERTO EL LOCAL A STRING
-function convLocal(email) {
+function convLocal(dni) {
     let convert, value;
 
-    value = localStorage.getItem(email);
+    value = localStorage.getItem(dni);
     convert = value.toString();
 
     return String(convert);
@@ -136,7 +136,6 @@ class Usuario {
         let subSaldo = p.substring(21, 25);
 
         if ((ema == subEmail) && (pwd == subPasw)) {
-            // alert("Entro");
             bienvenida(subEmail, subPasw, subNombre, subSaldo);
             location.href = location.origin + "/index.html";
         } else if ((ema != subEmail) || (pwd != subPasw)) {
@@ -145,9 +144,35 @@ class Usuario {
     }
 }
 
+
+
+
 function bienvenida(e, p, n, s) {
+    /*let x = location.pathname;
+    alert(x);
+    if (x == "/testLogIn.html") {
+        alert(e);
+    } else {
+        alert("HTLM AQUI");
+        alert(e);
+    }*/
+    // document.getElementById("secPosG").innerHTML = 'Hooola';
+    // console.log(pintar);
+    // pintar.write(`<div>Hola</div>`);
+
+
+    // index(objIndex);
     const local = new Datos(e, p, n, s);
     local.llamadaDatos(e, p, n, s);
+}
+
+if (window.location.pathname == "/index.html") {
+
+    function index() {
+        document.getElementById("txtPos").innerHTML = 'Hooola';
+        // let x = llamadaDatos();
+    }
+
 }
 
 
@@ -159,7 +184,19 @@ class Datos extends Usuario {
     }
 
     llamadaDatos(u, d, s, p) {
-        document.getElementById().innerHTML = ``;
+        /*alert("hola");
+        let x = JSON.parse(localStorage.getItem(this.usuario.dni));
+        alert(x);*/
+        // document.getElementById("secPosG").innerHTML = `<div>Hola ${u}</div>`;
+        // document.write(`Hola ${u}`);
+        const objIndex = {
+            us: u,
+            pas: p,
+            nam: d,
+            monto: s
+        };
+
+        return objIndex;
     }
 
 }
