@@ -44,7 +44,7 @@ function convLocal(dni) {
 }
 
 // REGISTRAMOS USUARIO
-function registrarUsuario() {
+document.getElementById("registrarse2").addEventListener("click", function registrarUsuario() {
 
     // Valores de los campos de texto
     let ux = document.getElementById("ux").value;
@@ -68,7 +68,7 @@ function registrarUsuario() {
     document.getElementById("saldo").value = "";
     document.getElementById("pwd").value = "";
 
-}
+});
 
 
 // LOGEAMOS AL USUARIO
@@ -117,6 +117,7 @@ class Usuario {
         if (localStorage.getItem(objLocalStorage.dni) === null) {
             localStorage.setItem(objLocalStorage.dni, conversor(objLocalStorage));
             bienvenida(objLocalStorage.dni, objLocalStorage.password, objLocalStorage.usuario, objLocalStorage.saldo);
+            // salir(objLocalStorage.dni, objLocalStorage.password, objLocalStorage.usuario, objLocalStorage.saldo);
             document.getElementById("caja").style.display = "none";
             document.getElementById("caja2").style.display = "block";
 
@@ -145,17 +146,15 @@ class Usuario {
             document.getElementById("caja").style.display = "none";
             document.getElementById("caja2").style.display = "block";
             // location.href = location.origin + "/index.html";
-        } else {
+        } else if ((ema !== subEmail) && (pwd !== subPasw)) {
             alert("error");
+        } else {
             // Vaciar los campos
             document.getElementById("logEmail").value = " ";
             document.getElementById("logPWD").value = " ";
         }
     }
 }
-
-
-
 
 function bienvenida(e, p, n, s) {
     document.getElementById("txtPos").innerHTML =
@@ -166,25 +165,51 @@ function bienvenida(e, p, n, s) {
 
     const local = new Datos(e, p, n, s);
     local.llamadaDatos(e, p, n, s);
+    // local.salirMenu(e, p, n, s);
 }
 
-document.getElementById("salir").addEventListener("click", function salir() {
+
+function bien() {
+    // alert("click");
+    document.getElementsByTagName("a")[0].classList.add("active");
+    document.getElementsByTagName("a")[4].classList.remove("active");
+
+    // llamadaDatos();
+}
+
+function salir() {
+    document.getElementsByTagName("a")[0].classList.remove("active");
+    document.getElementsByTagName("a")[4].classList.add("active");
+
     document.getElementById("secPosG").style.display = "none";
     document.getElementById("salirMenu").style.display = "block";
 
+    // alert(e);
+    // document.getElementById("txtPos").innerHTML = `Adios<br><span class="nomGlo">${e}</span>`;
+
     const da = new Datos();
     da.salirMenu();
-});
+}
+
+function ingresar() {
+    document.getElementsByTagName("a")[0].classList.remove("active");
+    document.getElementsByTagName("a")[1].classList.add("active");
+
+    document.getElementById("secPosG").style.display = "none";
+    document.getElementById("ingresar").style.display = "block";
+}
 
 
 //// CLASE DATOS extends USUARIO /////
 class Datos extends Usuario {
 
     constructor(usuario, dni, saldo, pwd) {
-        super();
+        super(usuario, dni, saldo, pwd);
+
     }
 
     llamadaDatos(u, d, s, p) {
+
         const objIndex = {
             us: u,
             pas: p,
@@ -196,9 +221,10 @@ class Datos extends Usuario {
     }
 
     salirMenu() {
-        // alert("holas");
-        document.getElementById("txtPos").innerHTML = `Bienvenido a la posicion global<br><span class="nomGlo">${this.usuario}</span><br>
-    saldo inicial<br><span class="nomGlo">${this.saldo} €</span>`;
+
+        // alert(objIndex.us);
+        document.getElementById("salirMenu").innerHTML = `Adios<br><span class="nomGlo">${this.usuario}</span>`;
+
         // localStorage.clear();
     }
 

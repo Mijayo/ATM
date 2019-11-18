@@ -54,7 +54,7 @@
                             <input id="pwd" type="password" placeholder="contraseña" name="psw" maxlength="4" required>
 
                             <!-- BOTON PARA REGISTRAR -->
-                            <button id="registrarse2" type="submit" onclick="registrarUsuario()">registrarse</button>
+                            <button id="registrarse2" type="submit">registrarse</button>
                         </div>
                         <!-- BOTON CANCELAR -->
                         <div class="container" style="background-color:#f1f1f1">
@@ -103,31 +103,29 @@
             <div class="cajaCentrada2" id="caja2">
                 <ul class="nav nav-pills justify-content-center">
                     <li class="nav-item">
-                        <a class="nav-link active" href="#">Posicion global</a>
+                        <a class="nav-link active" href="#" onclick="bien()">Posicion global</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#" id="ingresar">Ingresar</a>
+                        <a class="ul nav-link" href="#" id="ingresar" onclick="ingresar()">Ingresar</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#" id="retirar">Retirar</a>
+                        <a class="ul nav-link" href="#" id="retirar" onclick="retirar()">Retirar</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#" id="tarjeta">Solicitar tarjeta</a>
+                        <a class="ul nav-link" href="#" id="tarjeta" onclick="tarjeta()">Solicitar tarjeta</a>
                     </li>
                     <li class="nav-item">
-                        <a class="nav-link" href="#" id="salir">Salir</a>
+                        <a class="ul nav-link" href="#" id="salir" onclick="salir()">Salir</a>
                     </li>
                 </ul>
 
                 <section id="secPosG">
-                    <div id="txtPos">
-                    </div>
+                    <div id="txtPos"></div>
                 </section>
-
-                <section id="salirMenu">
-                    <div id="txtPos">
-                    </div>
-                </section>
+                <section id="ingresar"></section>
+                <section id="retirar"></section>
+                <section id="tarjeta"></section>
+                <section id="salirMenu"></section>
 
             </div>
         </section>

@@ -50,6 +50,10 @@ body {
     margin-top: 25px;
 }
 
+.ul {
+    color: #007bff;
+}
+
 .cajaCentrada2 {
     position: absolute;
     z-index: 9;
@@ -130,15 +134,24 @@ body {
 
 #salirMenu {
     display: none;
-    border: 1px solid deeppink;
+    /* border: 1px solid deeppink; */
     height: 350px;
     margin-top: 65px;
+    text-align: center;
+    color: #929292;
+    font-size: 2rem;
 }
 
 #txtSalir {
     text-align: center;
     color: #929292;
     font-size: 2rem;
+}
+
+#ingresar,
+#retirar,
+#tarjeta {
+    display: block;
 }
 
 
