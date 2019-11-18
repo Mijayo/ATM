@@ -116,13 +116,17 @@ class Usuario {
 
         if (localStorage.getItem(objLocalStorage.dni) === null) {
             localStorage.setItem(objLocalStorage.dni, conversor(objLocalStorage));
+            bienvenida(objLocalStorage.dni, objLocalStorage.password, objLocalStorage.usuario, objLocalStorage.saldo);
+            document.getElementById("caja").style.display = "none";
+            document.getElementById("caja2").style.display = "block";
+
         } else if (zDNI === objLocalStorage.dni) {
             alert("No se puede registrar mas usuarios con un mismo DNI")
         } else {
             localStorage.setItem(objLocalStorage.dni, conversor(objLocalStorage));
+            document.getElementById("caja").style.display = "none";
+            document.getElementById("caja2").style.display = "block";
         }
-
-        // bienvenida(objLocalStorage);
 
     }
 
@@ -136,10 +140,16 @@ class Usuario {
         let subSaldo = p.substring(21, 25);
 
         if ((ema == subEmail) && (pwd == subPasw)) {
+            alert("Logeado");
             bienvenida(subEmail, subPasw, subNombre, subSaldo);
-            location.href = location.origin + "/index.html";
-        } else if ((ema != subEmail) || (pwd != subPasw)) {
+            document.getElementById("caja").style.display = "none";
+            document.getElementById("caja2").style.display = "block";
+            // location.href = location.origin + "/index.html";
+        } else {
             alert("error");
+            // Vaciar los campos
+            document.getElementById("logEmail").value = " ";
+            document.getElementById("logPWD").value = " ";
         }
     }
 }
@@ -148,47 +158,33 @@ class Usuario {
 
 
 function bienvenida(e, p, n, s) {
-    /*let x = location.pathname;
-    alert(x);
-    if (x == "/testLogIn.html") {
-        alert(e);
-    } else {
-        alert("HTLM AQUI");
-        alert(e);
-    }*/
-    // document.getElementById("secPosG").innerHTML = 'Hooola';
-    // console.log(pintar);
-    // pintar.write(`<div>Hola</div>`);
+    document.getElementById("txtPos").innerHTML =
+        `Bienvenido a la posicion global<br>
+    <span class="nomGlo">${n}</span><br>
+    saldo inicial<br>
+    <span class="nomGlo">${s} €</span>`;
 
-
-    // index(objIndex);
     const local = new Datos(e, p, n, s);
     local.llamadaDatos(e, p, n, s);
 }
 
-if (window.location.pathname == "/index.html") {
+document.getElementById("salir").addEventListener("click", function salir() {
+    document.getElementById("secPosG").style.display = "none";
+    document.getElementById("salirMenu").style.display = "block";
 
-    function index() {
-        document.getElementById("txtPos").innerHTML = 'Hooola';
-        // let x = llamadaDatos();
-    }
-
-}
+    const da = new Datos();
+    da.salirMenu();
+});
 
 
 //// CLASE DATOS extends USUARIO /////
 class Datos extends Usuario {
 
     constructor(usuario, dni, saldo, pwd) {
-        super(usuario, dni, saldo, pwd);
+        super();
     }
 
     llamadaDatos(u, d, s, p) {
-        /*alert("hola");
-        let x = JSON.parse(localStorage.getItem(this.usuario.dni));
-        alert(x);*/
-        // document.getElementById("secPosG").innerHTML = `<div>Hola ${u}</div>`;
-        // document.write(`Hola ${u}`);
         const objIndex = {
             us: u,
             pas: p,
@@ -197,6 +193,13 @@ class Datos extends Usuario {
         };
 
         return objIndex;
+    }
+
+    salirMenu() {
+        // alert("holas");
+        document.getElementById("txtPos").innerHTML = `Bienvenido a la posicion global<br><span class="nomGlo">${this.usuario}</span><br>
+    saldo inicial<br><span class="nomGlo">${this.saldo} €</span>`;
+        // localStorage.clear();
     }
 
 }

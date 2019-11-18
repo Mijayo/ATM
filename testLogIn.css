@@ -8,16 +8,22 @@ body {
 }
 
 .imgLogo {
-    margin-left: 38%;
-    /* padding-top: 20px; */
-    /* margin-top: 200x; */
-    /* border: 1px solid red; */
+    margin-top: 50px;
+    margin-left: 6%;
     position: absolute;
-    background-image: url("img/download-1.png");
+    background-image: url("img/ifp.png");
     background-size: cover;
     width: 225px;
     height: 62px;
-    z-index: 9;
+}
+
+#txtCajero {
+    position: absolute;
+    font-weight: bold;
+    font-size: 1.5rem;
+    color: #94c01f;
+    margin-top: 50px;
+    margin-left: 565px;
 }
 
 .imgBody {
@@ -40,11 +46,15 @@ body {
     background-color: rgb(255, 255, 255);
 }
 
+.nav {
+    margin-top: 25px;
+}
+
 .cajaCentrada2 {
     position: absolute;
     z-index: 9;
     margin-top: 15vh;
-    margin-left: 20%;
+    margin-left: 10%;
     width: 80%;
     height: 500px;
     box-shadow: 0 5px 10px -5px;
@@ -88,7 +98,11 @@ body {
     vertical-align: top;
     display: inline-block;
     width: 48%;
-    margin-top: 50px;
+    margin-top: 180px;
+}
+
+#caja2 {
+    display: none;
 }
 
 .txtLabel {
@@ -96,9 +110,35 @@ body {
 }
 
 #secPosG {
-    border: 1px solid red;
+    display: block;
+    /* border: 1px solid red; */
     height: 350px;
-    margin-top: 35px;
+    margin-top: 65px;
+}
+
+#txtPos {
+    text-align: center;
+    color: #929292;
+    font-size: 2rem;
+}
+
+.nomGlo {
+    color: #007bff;
+    font-size: 5rem;
+    font-weight: bold;
+}
+
+#salirMenu {
+    display: none;
+    border: 1px solid deeppink;
+    height: 350px;
+    margin-top: 65px;
+}
+
+#txtSalir {
+    text-align: center;
+    color: #929292;
+    font-size: 2rem;
 }
 
 

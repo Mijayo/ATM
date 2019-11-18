@@ -18,79 +18,117 @@
 
 
 <body>
-    <div class="imgLogo"></div>
-    <main class="container cajaCentrada">
-        <h1 id="titular">CAJERO iFP</h1>
 
-        <!-- SECCION DE LA IZQUIERDA -->
-        <section id="secI">
-            <!-- BOTON PANTALLA INICIAL -->
-            <button id="registrarse" onclick="document.getElementById('id01').style.display='block'">registrarse</button>
-            <!-- VENTANA MODAL -->
-            <div id="id01" class="modal">
-                <!-- FORMULARIO -->
-                <div class="modal-content animate">
-                    <div class="imgcontainer">
-                        <h3 id="regH3">Registrarse</h3>
-                        <!-- BOTON X PARA CERRAR LA VENTANA -->
-                        <span onclick="document.getElementById('id01').style.display='none'" class="close" title="cerrar ventana">&times;</span>
-                    </div>
-                    <!-- CONTENEDOR DEL FORMULARIO -->
-                    <div class="container">
-                        <label for="uname"><b>Usuario</b></label>
-                        <input id="ux" type="text" placeholder="usuario" name="usuario" required>
-
-                        <label for="dni"><b>DNI</b></label>
-                        <input id="dni" type="text" placeholder="dni" name="dni" maxlength="9" required>
-
-                        <label for="saldo"><b>Saldo</b></label>
-                        <input id="saldo" type="text" placeholder="saldo" name="saldo" required>
-
-                        <label for="psw"><b>Contraseña</b></label>
-                        <input id="pwd" type="password" placeholder="contraseña" name="psw" maxlength="4" required>
-
-                        <!-- BOTON PARA REGISTRAR -->
-                        <button id="registrarse2" type="submit" onclick="registrarUsuario()">registrarse</button>
-                    </div>
-                    <!-- BOTON CANCELAR -->
-                    <div class="container" style="background-color:#f1f1f1">
-                        <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">cerrar</button>
-                    </div>
-                </div>
+    <main>
+        <div class="cajaCentrada" id="caja">
+            <div>
+                <div class="imgLogo"></div>
+                <p id="txtCajero">CAJERO iFP</p>
             </div>
-        </section>
+            <!-- <h1 id="titular">CAJERO iFP</h1> -->
+            <!-- SECCION DE LA IZQUIERDA -->
+            <section id="secI">
+                <!-- BOTON PANTALLA INICIAL -->
+                <button id="registrarse" onclick="document.getElementById('id01').style.display='block'">registrarse</button>
+                <!-- VENTANA MODAL -->
+                <div id="id01" class="modal">
+                    <!-- FORMULARIO -->
+                    <div class="modal-content animate">
+                        <div class="imgcontainer">
+                            <h3 id="regH3">Registrarse</h3>
+                            <!-- BOTON X PARA CERRAR LA VENTANA -->
+                            <span onclick="document.getElementById('id01').style.display='none'" class="close" title="cerrar ventana">&times;</span>
+                        </div>
+                        <!-- CONTENEDOR DEL FORMULARIO -->
+                        <div class="container">
+                            <label for="uname"><b>Usuario</b></label>
+                            <input id="ux" type="text" placeholder="usuario" name="usuario" required>
 
-        <!-- SECCION DE LA DERECHA -->
-        <section id="secD">
-            <!-- BOTON PANTALLA INICIAL -->
-            <button id="login" onclick="document.getElementById('id02').style.display='block'">log In</button>
-            <!-- VENTANA MODAL -->
-            <div id="id02" class="modal">
-                <!-- FORMULARIO -->
-                <div class="modal-content animate">
-                    <div class="imgcontainer">
-                        <h3 id="logH3">Log In</h3>
-                        <!-- BOTON X PARA CERRAR LA VENTANA -->
-                        <span onclick="document.getElementById('id02').style.display='none'" class="close" title="cerrar ventana">&times;</span>
-                    </div>
-                    <!-- CONTENEDOR DEL FORMULARIO -->
-                    <div class="container">
-                        <label for="email"><b>DNI</b></label>
-                        <input id="logEmail" type="text" placeholder="DNI" maxlength="9" name="email" required>
+                            <label for="dni"><b>DNI</b></label>
+                            <input id="dni" type="text" placeholder="dni" name="dni" maxlength="9" required>
 
-                        <label for="psw"><b>Contraseña</b></label>
-                        <input id="logPWD" type="password" placeholder="contraseña" name="psw" required>
+                            <label for="saldo"><b>Saldo</b></label>
+                            <input id="saldo" type="text" placeholder="saldo" name="saldo" required>
 
-                        <button id="logIn2" type="submit" onclick="logearUsuario()">log In</button>
-                        <label>
-                            <input type="checkbox" checked="checked" name="remember"> recordarme
-                        </label>
-                    </div>
-                    <!-- BOTON CANCELAR -->
-                    <div class="container" style="background-color:#f1f1f1">
-                        <button type="button" onclick="document.getElementById('id02').style.display='none'" class="cancelbtn">cerrar</button>
+                            <label for="psw"><b>Contraseña</b></label>
+                            <input id="pwd" type="password" placeholder="contraseña" name="psw" maxlength="4" required>
+
+                            <!-- BOTON PARA REGISTRAR -->
+                            <button id="registrarse2" type="submit" onclick="registrarUsuario()">registrarse</button>
+                        </div>
+                        <!-- BOTON CANCELAR -->
+                        <div class="container" style="background-color:#f1f1f1">
+                            <button type="button" onclick="document.getElementById('id01').style.display='none'" class="cancelbtn">cerrar</button>
+                        </div>
                     </div>
                 </div>
+            </section>
+
+            <!-- SECCION DE LA DERECHA -->
+            <section id="secD">
+                <!-- BOTON PANTALLA INICIAL -->
+                <button id="login" onclick="document.getElementById('id02').style.display='block'">log In</button>
+                <!-- VENTANA MODAL -->
+                <div id="id02" class="modal">
+                    <!-- FORMULARIO -->
+                    <div class="modal-content animate">
+                        <div class="imgcontainer">
+                            <h3 id="logH3">Log In</h3>
+                            <!-- BOTON X PARA CERRAR LA VENTANA -->
+                            <span onclick="document.getElementById('id02').style.display='none'" class="close" title="cerrar ventana">&times;</span>
+                        </div>
+                        <!-- CONTENEDOR DEL FORMULARIO -->
+                        <div class="container">
+                            <label for="email"><b>DNI</b></label>
+                            <input id="logEmail" type="text" placeholder="DNI" maxlength="9" name="email" required>
+
+                            <label for="psw"><b>Contraseña</b></label>
+                            <input id="logPWD" type="password" placeholder="contraseña" name="psw" required>
+
+                            <button id="logIn2" type="submit" onclick="logearUsuario()">log In</button>
+                            <label>
+                                <input type="checkbox" checked="checked" name="remember"> recordarme
+                            </label>
+                        </div>
+                        <!-- BOTON CANCELAR -->
+                        <div class="container" style="background-color:#f1f1f1">
+                            <button type="button" onclick="document.getElementById('id02').style.display='none'" class="cancelbtn">cerrar</button>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </div>
+
+        <section>
+            <div class="cajaCentrada2" id="caja2">
+                <ul class="nav nav-pills justify-content-center">
+                    <li class="nav-item">
+                        <a class="nav-link active" href="#">Posicion global</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" id="ingresar">Ingresar</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" id="retirar">Retirar</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" id="tarjeta">Solicitar tarjeta</a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#" id="salir">Salir</a>
+                    </li>
+                </ul>
+
+                <section id="secPosG">
+                    <div id="txtPos">
+                    </div>
+                </section>
+
+                <section id="salirMenu">
+                    <div id="txtPos">
+                    </div>
+                </section>
+
             </div>
         </section>
     </main>
